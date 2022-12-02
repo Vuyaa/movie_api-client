@@ -8,6 +8,7 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from "../movie-view/movie-view";
 
+
 import "./main-view.scss"
 
 
@@ -77,15 +78,15 @@ export class MainView extends React.Component {
         {selectedMovie
           ? (
             <Row className="justify-content-md-center">
-              <Col md={8}>
+              <Col md={10}>
                 <MovieView key={selectedMovie} movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
               </Col>
             </Row>
           )
           : (
-            <Row className="justify-content-md-center">
+            <Row className="justify-content-lg-center">
               {movies.map(movie => (
-            <Col md={4}>
+            <Col lg={3} md={4} sm={5}>
             <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
           </Col>
               ))}

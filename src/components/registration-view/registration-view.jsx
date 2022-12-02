@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { Form, Button, Card, CardGroup, Container, Col, Row, } from "react-bootstrap";
 
+import axios from 'axios';
+
 import "./registration-view.scss";
 
 export function RegistrationView(props) {
@@ -93,4 +95,9 @@ export function RegistrationView(props) {
 </Container>
   );
 };
-RegistrationView.propTypes = { };
+RegistrationView.propTypes = {register: PropTypes.shape({
+  Username: PropTypes.string.isRequired,
+  Password: PropTypes.string.isRequired,
+  Email: PropTypes.string.isRequired,
+}),
+};
