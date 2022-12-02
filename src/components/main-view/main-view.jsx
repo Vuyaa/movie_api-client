@@ -24,7 +24,7 @@ export class MainView extends React.Component {
   }
   
   componentDidMount(){
-    axios.get('http://localhost:8080/movies')
+    axios.get('https://site--popkorny--w5mfxztkv9bc.code.run/movies')
       .then(response => {
         this.setState({
           movies: response.data

@@ -38182,7 +38182,7 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('http://localhost:8080/movies').then((response)=>{
+        _axiosDefault.default.get('https://site--popkorny--w5mfxztkv9bc.code.run/movies').then((response)=>{
             this.setState({
                 movies: response.data
             });
