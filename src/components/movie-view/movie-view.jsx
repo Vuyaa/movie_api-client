@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import Image from 'react-bootstrap';
 
 import { Col } from 'react-bootstrap';
 import {Row} from 'react-bootstrap';
@@ -19,7 +20,7 @@ export class MovieView extends React.Component {
           <Col >
             <div className="movie-view">
               <div className="movie-poster">
-                <img src={movie.ImagePath} crossOrigin="Anonymous" />
+                <img height="600px" width="300px" className='img-fluid shadow-10' src={movie.ImagePath} crossOrigin="Anonymous" />
               </div>
               <div className="movie-title">
                 <span className="label">Title:</span>
@@ -41,21 +42,21 @@ export class MovieView extends React.Component {
 
   }
 }
+
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
-    }).isRequired,
+      Description: PropTypes.string.isRequired
+    }),
     Director: PropTypes.shape({
       Name: PropTypes.string.isRequired,
       Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string.isRequired,
-      Death: PropTypes.string,
-    }).isRequired,
+      BirthYear: PropTypes.number.isRequired,
+    }),
+    Actors: PropTypes.array.isRequired,
+    ImagePath: PropTypes.string.isRequired,
   }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
 };
