@@ -3,13 +3,10 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-<<<<<<< Updated upstream
-=======
 import { Form, Button, Card, CardGroup, Container, Col, Row, } from "react-bootstrap";
 
 import './registration-view.scss';
 
->>>>>>> Stashed changes
 export function RegistrationView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -94,35 +91,6 @@ export function RegistrationView(props) {
                      {usernameErr && <p>{usernameErr}</p>}
                   </Form.Group>
 
-<<<<<<< Updated upstream
-  return (
-    <form>
-      <h1>New User Registration</h1>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <label>
-        Email:
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-      </label>
-      <label>
-        Birthday:
-        <input type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Register</button>
-      <button type="button" onClick={() => {props.onBackClick(null);}}>Return to Login Page</button>
-    </form>
-  );
-}
-
-RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-=======
                   <Form.Group>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
@@ -189,5 +157,4 @@ RegistrationView.propTypes = {register: PropTypes.shape({
   Email: PropTypes.string.isRequired,
   Birthday: PropTypes.string,
 }),
->>>>>>> Stashed changes
 };

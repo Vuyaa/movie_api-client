@@ -4,15 +4,12 @@ import './login-view.scss';
 import { Navbar } from '../navigation-bar/navigation-bar';
 import { Link } from 'react-router-dom';
 
-<<<<<<< Updated upstream
-=======
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 
 import axios from 'axios';
 
->>>>>>> Stashed changes
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -70,26 +67,6 @@ const validate = () => {
   };
 
 
-<<<<<<< Updated upstream
-  const handleRegisterClick = (e) => {
-    e.preventDefault();
-    props.toRegister();
-  };
-
-  return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Log In</button>
-      <button type="button">Register</button>
-    </form>
-=======
   return (
     <Container className="login-container">
     <Card className="login-card mt-5">
@@ -129,7 +106,6 @@ const validate = () => {
     </Card.Body>
     </Card>
     </Container>
->>>>>>> Stashed changes
   );
 }
 

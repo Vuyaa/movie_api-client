@@ -1,12 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-<<<<<<< Updated upstream
-import './main-view.scss';
-=======
 import PropTypes from "prop-types";
 
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
->>>>>>> Stashed changes
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -15,15 +11,12 @@ import { MovieView } from "../movie-view/movie-view";
 import { Navbar } from '../navigation-bar/navigation-bar';
 import ProfileView from "../profile-view/profile-view";
 
-<<<<<<< Updated upstream
-=======
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import './main-view.scss';
 
->>>>>>> Stashed changes
 export class MainView extends React.Component {
 
   constructor() {
@@ -45,12 +38,6 @@ export class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
-<<<<<<< Updated upstream
-  
-  componentDidMount(){
-    axios.get('https://popkorny.herokuapp.com/movies')
-      .then(response => {
-=======
 
   getMovies(token) {
     axios
@@ -59,7 +46,6 @@ export class MainView extends React.Component {
       })
       .then((response) => {
         // Assign the result to the state
->>>>>>> Stashed changes
         this.setState({
           movies: response.data,
         });
@@ -140,47 +126,13 @@ handleFavorite = (_id, action) => {
         });
     }
   }
-<<<<<<< Updated upstream
-  
-  render() {
-    const { movies, selectedMovie, user, registered } = this.state;
-  
-    if (!registered) return <RegistrationView />;
-  
-    /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (!user)
-        return (
-          <LoginView
-            onLoggedIn={(user) => this.onLoggedIn(user)}
-            toRegister={(registered) => this.toRegister(registered)}
-          />
-        );
-  
-    // Before the movies have been loaded
-    if (movies.length === 0) return <div className="main-view" />;
-  
-    return (
-      <div className="main-view">
-        {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-         ))
-        }
-      </div>
-    );
-  }
-  
-  }
-=======
 };
 render() {
   const { movies, user, favoriteMovies } = this.state;
   return (
     <Router>
       <Navbar user={user} />
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mr-1 ml-1">
         <Route
           exact
           path="/"
@@ -275,4 +227,3 @@ render() {
 }
 
 export default MainView;
->>>>>>> Stashed changes
