@@ -1,0 +1,23 @@
+
+
+.app-container {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #000;
+  background: linear-gradient(#171617, #2b2b2bc9) fixed;
+}
+
+
+
+.movie-view {
+  text-align: center;
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+/*# sourceMappingURL=index.3bb28fe2.css.map */
