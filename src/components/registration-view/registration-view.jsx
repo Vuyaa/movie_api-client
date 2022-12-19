@@ -15,6 +15,7 @@ export function RegistrationView(props) {
   const [usernameErr, setUsernameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
+  const [birthdayErr, setBirthdayErr] = useState("");
 
   const validate = () => {
     let isReq = true;
@@ -22,14 +23,14 @@ export function RegistrationView(props) {
       setUsernameErr("Username Required");
       isReq = false;
     } else if (username.length < 2) {
-      setUsernameErr("Username must be 2 characters long");
+      setUsernameErr("Username must be at least 2 characters long");
       isReq = false;
     }
     if (!password) {
       setPasswordErr("Password Required");
       isReq = false;
     } else if (password.length < 6) {
-      setPasswordErr("Password must be 6 characters long");
+      setPasswordErr("Password must be at least 6 characters long");
       isReq = false;
     }
     if (!email) {
@@ -39,7 +40,10 @@ export function RegistrationView(props) {
       setEmailErr("Email is invalid");
       isReq = false;
     }
-
+    if (!birthday) {
+      setBirthdayErr("Birthday is Required");
+      isReq = false;
+    }
     return isReq;
   };
   
@@ -56,15 +60,15 @@ export function RegistrationView(props) {
          Email: email,
          Birthday: birthday,
        })
-       .then((response) => {
-         const data = response.data;
+       .then((user) => {
+         const data = user.data;
          console.log(data);
          alert("Registration successful, please login!");
          window.open("/", "_self"); //the second argument '_self' makes the page open in the current tab
        })
-       .catch((response) => {
-         console.error(response);
-         alert("unable to register");
+       .catch((error) => {
+         console.error(error);
+         alert("Username already in use!");
        });
    }
   };
@@ -88,20 +92,20 @@ export function RegistrationView(props) {
                       //required
                       placeholder="Enter a username"
                     />
-                     {usernameErr && <p>{usernameErr}</p>}
+                     {usernameErr && <p className='text-danger'>{usernameErr}</p>}
                   </Form.Group>
 
                   <Form.Group>
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
-                      type="text"
+                      type="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       //required
-                      minLength="8"
-                      placeholder="Must be 8 or more characters"
+                      minLength="6"
+                      placeholder="Must be 6 or more characters"
                     />
-                    {passwordErr && <p>{passwordErr}</p>}
+                    {passwordErr && <p className='text-danger'>{passwordErr}</p>}
                   </Form.Group>
 
                   <Form.Group>
@@ -113,17 +117,18 @@ export function RegistrationView(props) {
                       //required
                       placeholder="Enter your email address"
                     />
-                     {emailErr && <p>{emailErr}</p>}
+                     {emailErr && <p className='text-danger'>{emailErr}</p>}
                   </Form.Group>
 
                   <Form.Group>
                     <Form.Label>Birthday:</Form.Label>
-                    <Form.Control
+                    <Form.Control                     
                       type="date"
                       value={birthday}
                       onChange={(e) => setBirthday(e.target.value)}
                       placeholder="Enter your birthday"
                     />
+                    {birthdayErr && <p className='text-danger'>{birthdayErr}</p>}
                   </Form.Group>
 
                   <Button
@@ -149,7 +154,7 @@ export function RegistrationView(props) {
       </Row>
     </Container>
   );
-}
+};
 
 RegistrationView.propTypes = {register: PropTypes.shape({
   Username: PropTypes.string.isRequired,

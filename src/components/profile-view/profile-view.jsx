@@ -76,7 +76,7 @@ export default class ProfileView extends React.Component {
       });
   };
 
-  editUser = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const Username = localStorage.getItem("user");
     const token = localStorage.getItem("token");
@@ -107,7 +107,7 @@ export default class ProfileView extends React.Component {
         console.log(data);
         console.log(this.state.Username);
         alert("Profile is updated!");
-        window.open(`/users/${Username}`, "_self");
+        window.open(`/users/${data.Username}`, "_self");
       })
       .catch(function (error) {
         console.error(error);
@@ -202,7 +202,7 @@ export default class ProfileView extends React.Component {
                   <Form
                     className="update-form"
                     onSubmit={(e) =>
-                      this.editUser(
+                      this.handleSubmit(
                         e,
                         this.Username,
                         this.Password,
@@ -253,7 +253,7 @@ export default class ProfileView extends React.Component {
                       <Button
                         variant="warning"
                         type="submit"
-                        onClick={(e) => this.editUser(e)}
+                        onClick={(e) => this.handleSubmit(e)}
                       >
                         Update User
                       </Button>
@@ -283,7 +283,7 @@ export default class ProfileView extends React.Component {
                 <Col key={movie._id} className="fav-movie">
                   <Figure>
                     <Link to={`/movies/${movie._id}`}>
-                      <Figure.Image src={movie.ImagePath} alt={movie.Title} />
+                      <Figure.Image height="400px" width="200px" crossOrigin="anonymous" src={movie.ImagePath} alt={movie.Title} />
                       <Figure.Caption>{movie.Title}</Figure.Caption>
                     </Link>
                   </Figure>

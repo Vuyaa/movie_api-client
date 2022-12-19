@@ -9,7 +9,14 @@
 
 
 
+.movie-view {
+  text-align: center;
+  background-color: #fff;
+}
 
+.favorite-button:not(:disabled):not(:disabled):focus {
+  background-color: red !important;
+}
 
 
 

@@ -56,7 +56,7 @@ const validate = () => {
       props.onLoggedIn(data);
     })
     .catch(e => {
-      console.log('no such user')
+      alert('Wrong credentials!')
     });
   }
   };
