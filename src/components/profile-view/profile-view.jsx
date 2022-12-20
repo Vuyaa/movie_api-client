@@ -283,7 +283,7 @@ export default class ProfileView extends React.Component {
                 <Col key={movie._id} className="fav-movie">
                   <Figure>
                     <Link to={`/movies/${movie._id}`}>
-                      <Figure.Image height="400px" width="200px" crossOrigin="anonymous" src={movie.ImagePath} alt={movie.Title} />
+                      <Figure.Image height="500px" width="300px" crossOrigin="anonymous" src={movie.ImagePath} alt={movie.Title} />
                       <Figure.Caption>{movie.Title}</Figure.Caption>
                     </Link>
                   </Figure>

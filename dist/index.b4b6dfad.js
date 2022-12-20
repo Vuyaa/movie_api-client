@@ -48478,8 +48478,8 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                                     to: `/movies/${movie._id}`,
                                                     children: [
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Figure).Image, {
-                                                            height: "400px",
-                                                            width: "200px",
+                                                            height: "500px",
+                                                            width: "300px",
                                                             crossOrigin: "anonymous",
                                                             src: movie.ImagePath,
                                                             alt: movie.Title
